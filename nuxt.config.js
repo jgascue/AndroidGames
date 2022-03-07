@@ -37,14 +37,14 @@ export default {
     '@nuxtjs/axios'
   ],
 
-  proxy: {
+/*   proxy: {
     '/api': {
       target: 'https://www.freetogame.com/api/',
       pathRewrites: {
         '^/api' : '/'
       }
     }
-  },
+  }, */
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

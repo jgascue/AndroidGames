@@ -30,9 +30,6 @@
                     </div>
                 </div>
             </li>
-            <li>
-                <n-link to="/games/404"> 404 request </n-link>
-            </li>
         </ul>
     </section>
 </template>

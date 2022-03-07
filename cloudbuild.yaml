@@ -1,12 +1,12 @@
 steps:
  # build the container 
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['build', '--network=cloudbuild','-t', 'gcr.io/server', '.']
+   args: ['build', '--network=cloudbuild','-t', 'gcr.io/androidgames/server', '.']
  # push the container image to Container Registry
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'gcr.io/server']
+   args: ['push', 'gcr.io/androidgames/server']
  # Deploy container image to Cloud Run
  - name: 'gcr.io/cloud-builders/gcloud'
-   args: ['run', 'deploy', 'academy-server', '--image', 'gcr.io/server', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
+   args: ['run', 'deploy', 'academy-server', '--image', 'gcr.io/androidgames/server', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
 images: 
-- 'gcr.io/server'
+- 'gcr.io/androidgames/server'

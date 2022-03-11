@@ -1,14 +1,11 @@
 <template>
   <section class="section">
     <h2 class="title is-3 has-text-grey">
-    <p>
-        {{ id }}
-    </p>      
-      {{ params }}
+      {{ id }}
       "Just start <b-icon icon="rocket" size="is-large" />"
     </h2>
     <h3 class="subtitle is-6 has-text-grey">
-      Author: <a href=""> Antério Vieira </a>
+      Authooor: <a href=""> Antério Vieira </a>
     </h3>
   </section>
 </template>
@@ -43,13 +40,12 @@ export default {
         } catch (err) {
             error({ message: 'something went wrong', statusCode: err.code })
         }
-    },
+    }, 
     data() {
         
         return {
             AllGames: [],
             articles: [],
-            
         }
     },
      async fetch() {

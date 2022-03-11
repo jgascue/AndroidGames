@@ -1,98 +1,97 @@
 <template>
     <section class="section">
         <div class="columns is-mobile"></div>
-        <ul>
-            <li v-for="game of AllGames" :key="game.id" class="m-4">
-                <div class="box">
-                    <div class="columns">
-                        <div class="column">
-                            <a :href="game.game_url">
-                                <h2 class="is-size-2 ">
-                                    {{ game.title }}
-                                </h2>
-                            </a>
-                            <a :href="game.game_url">
-                                <img :src="game.thumbnail" :alt="game.title" />
-                            </a>
-                            <p>
-                                <small> Category: {{ game.genre }} </small>
+<!--            <pre>
+                {{ data }}
+            </pre> -->
+            <h1 class="is-size-2 has-text-weight-bold">Android Programs Games and much more</h1>
+                <div >
+                    <div v-for="article of data" :key="article.id" class="my-4 columns" >
 
-                                <small>
-                                    Release Date: {{ game.release_date }}
-                                </small>
-                            </p>
-                            <p>Genre: {{ game.genre }} </p>
-                            <p>Platform: {{ game.platform }}</p>
-                            <p>
-                                {{ game.short_description }}
-                            </p>
+                            <div class="column is-one-quarter">
+                                <a :href="article.url">
+                                    <img :src="article.img" :alt="article.title" />
+                                </a>
+                            </div>
+                            <div class="column is-two-quarters">
+                                <a :href="article.url">
+                                    <h2 class="title is-4 is-family-sans-serif has-text-dark">
+                                        <strong>
+                                            {{ article.title}}
+                                        </strong>  
+                                    </h2>
+                                </a>
+                                <p class="subtitle" >{{ article.subtitle }}</p>
+                                <p>
+                                    <small> Description: {{ article.title }} </small>
+                                </p>
+                                <p>
+                                    <small>
+                                        Date: {{ article.time }}
+                                    </small>
+                                </p>
+                                <p>
+                                    {{ article.subtitle }}
+                                </p>
+                            </div>
+                            <div class="column column is-one-quarter">
+                                   ...
+                            </div>
+                            
                         </div>
-                    </div>
+                    
                 </div>
-            </li>
-        </ul>
+  
     </section>
 </template>
 
 <script>
-/* import Card from '~/components/Card' */
-/* import axios from 'axios' */
+
 import axios from 'axios'
-
-/* import {
-    defineComponent,
-    useFetch,
-    useContext,
-    ref,
-} from '@nuxtjs/composition-api'
-
-export default defineComponent({
-
-  name: 'IndexPage',
-
-  setup() {
-    const AllGames = []
-    const games = ref(null)
-    const { $http } = useContext()
-
-    useFetch(async () => {
-      games.value = await $http
-        .$get('https://www.freetogame.com/api/games?platform=pc')
-        .then((games) => games.slice(0, 20))
-    }); */
-
-/*     head () {
-      return {
-        title: "lalala",
-        name: "description",
-        content: "all games free to play"
-      }
-    },  */
-
-/*     return { 
-      games,
-      AllGames }
-    }, */
-
-/*   async asyncData ({ params, error}) {
-    try {
-      const { data } = await axios.get('https://www.freetogame.com/api/games')
-      return {
-        
-      }
-    }
-    catch (err) {
-      error ({ message: "something went wrong"})
-
-    }
-  },
-
-}) */
 
 export default {
     name: 'IndexPage',
     components: {},
-    /*     head() {
+    async asyncData({ params, error }) {
+        try {
+            const { data } = await axios.get(
+                'http://localhost:3000/api/'
+            )
+            return {
+                data
+            }
+            
+        } catch (err) {
+            error({ message: 'something went wrong', statusCode: err.code })
+        }
+    }, 
+   /*  async asyncData({ params, error }) {
+        try {
+            const { data } = await axios.get(
+                'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=android&api-key=EBJf2GTBMYvsdIEiRwdABGEqQ7CrY45p'
+            )
+            return {
+                AllGames: data.response.docs,
+            }
+            
+        } catch (err) {
+            error({ message: 'something went wrong', statusCode: err.code })
+        }
+        
+    },  */
+    data() {
+        
+        return {
+            AllGames: [],
+        }
+    },
+/*     async fetch() {
+        this.data = await fetch(
+            'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=android&api-key=EBJf2GTBMYvsdIEiRwdABGEqQ7CrY45p'
+        ).then(res=> res.json())
+        console.log(this.data);
+    }, */
+    head() {
         return {
             title: 'Android Games',
             meta: [
@@ -103,24 +102,6 @@ export default {
                 },
             ],
         }
-    }, */
-    async asyncData({ params, error }) {
-        try {
-            const { data } = await axios.get(
-                'https://www.freetogame.com/api/games'
-            )
-            return {
-                AllGames: data,
-            }
-        } catch (err) {
-            error({ message: 'something went wrong', statusCode: err.code })
-        }
-    },
-
-    data() {
-        return {
-            AllGames: [],
-        }
-    },
+    }
 }
 </script>

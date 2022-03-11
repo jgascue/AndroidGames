@@ -14,14 +14,33 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  link: [
+    { 
+    rel: 'stylesheet', 
+    type: 'https://fonts.googleapis.com/css2?family=Merriweather&display=swap'
+    },
+    { 
+      rel: 'stylesheet', 
+      type: 'https://fonts.googleapis.com/css2?family=Rubik&display=swap'
+    }
+  ],
+
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    "~layouts/global",
+    '~/assets/scss/template',
+    '~/assets/scss/variables',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
+
+  serverMiddleware: [
+    '~/api/index'
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -32,9 +51,10 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+
     // https://go.nuxtjs.dev/buefy
-    'nuxt-buefy',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['nuxt-buefy', {css: false, scss: false}]
   ],
 
 /*   proxy: {
@@ -47,5 +67,6 @@ export default {
   }, */
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+  }
 }

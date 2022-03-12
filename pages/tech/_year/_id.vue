@@ -101,22 +101,28 @@ export default {
     },
     data() {
         return {
+            slug: this.$route.params.slug,
             AllGames: [],
             articles: [],
         }
     },
     head() {
         return {
-            title: 'Android Games',
+            title: this.articles[0].title ,
             meta: [
                 {
-                    hid: 'description',
-                    name: 'description',
-                    content: 'all games free to play',
+                    hid: this.articles[0].title,
+                    name: this.articles[0].subtitle,
+                    content: this.articles[0].title,
                 },
             ],
         }
     },
+    
+    computed: { 
+
+    },
+
 }
 </script>
 

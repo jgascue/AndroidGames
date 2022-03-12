@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
         img
       })
     })
-    console.log(articles);
+ /*    console.log(articles); */
     
     res.send(articles)
   }).catch(err => console.log(err))

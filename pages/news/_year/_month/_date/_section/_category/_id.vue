@@ -46,7 +46,7 @@ export default {
         const id = params.id
         try {
             const { data } = await axios.get(
-                'http://localhost:3000/api/'
+                'https://programsgamesandroid.com/api/'
             )
             return {
                 data,
@@ -66,7 +66,7 @@ export default {
 
     head() {
         return {
-            title: 'Android Games',
+            title: this.title,
             meta: [
                 {
                     hid: 'description',

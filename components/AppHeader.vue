@@ -50,12 +50,12 @@ export default {
                 },
                 {
                     title: 'Programs',
-                    icon: 'lightbulb',
+                    icon: 'file-table',
                     to: { name: 'programs' },
                 },
                 {
                     title: 'Games',
-                    icon: 'cube',
+                    icon: 'nintendo-game-boy',
                     to: { name: 'games' },
                 },
                 {
@@ -64,24 +64,21 @@ export default {
                     to: { name: 'android' },
                 },
                 {
-                    title: 'Home',
-                    icon: 'brain',
-                    to: { name: 'index' },
+                    title: 'Mobile',
+                    icon: 'cellphone-nfc',
+                    to: { name: 'mobile' },
                 },
+                
                 {
-                    title: 'Programs',
-                    icon: 'label',
-                    to: { name: 'programs' },
+                    title: 'Tech',
+                    icon: 'video-input-antenna',
+                    to: { name: 'tech' },
                 },
+                
                 {
-                    title: 'Games',
-                    icon: 'star',
-                    to: { name: 'games' },
-                },
-                {
-                    title: 'Android',
-                    icon: 'android',
-                    to: { name: 'android' },
+                    title: 'News',
+                    icon: 'new-box',
+                    to: { name: 'news' },
                 },
             ],
         }

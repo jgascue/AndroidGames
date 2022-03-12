@@ -58,17 +58,17 @@ export default {
         },
         {
           title: 'Programs',
-          icon: 'lightbulb',
+          icon: 'key',
           to: { name: 'programs' },
         },
         {
           title: 'Games',
-          icon: 'lightbulb',
+          icon: 'cube',
           to: { name: 'games' },
         },
         {
           title: 'Android',
-          icon: 'lightbulb',
+          icon: 'android',
           to: { name: 'android' },
         },
       ],

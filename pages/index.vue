@@ -55,7 +55,7 @@ export default {
     async asyncData({ params, error }) {
         try {
             const { data } = await axios.get(
-                'http://localhost:3000/api/'
+                'https://programsgamesandroid.com/api/'
             )
             return {
                 data
@@ -65,20 +65,6 @@ export default {
             error({ message: 'something went wrong', statusCode: err.code })
         }
     }, 
-   /*  async asyncData({ params, error }) {
-        try {
-            const { data } = await axios.get(
-                'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=android&api-key=EBJf2GTBMYvsdIEiRwdABGEqQ7CrY45p'
-            )
-            return {
-                AllGames: data.response.docs,
-            }
-            
-        } catch (err) {
-            error({ message: 'something went wrong', statusCode: err.code })
-        }
-        
-    },  */
     data() {
         
         return {

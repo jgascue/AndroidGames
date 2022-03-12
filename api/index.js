@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
         subtitle,
         url,
         time,
-        img
+        img,
       })
     })
  /*    console.log(articles); */

@@ -5,8 +5,8 @@
         </strong>
         <p>
             <small
-                >Programs and Games Android and not Android. Play for free and
-                discover new programs and other things
+                >Programs and Games Android and not Android. Play for free Games,
+                discover new programs and find the last Android news
             </small>
         </p>
     </div>

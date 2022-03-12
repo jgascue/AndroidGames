@@ -66,7 +66,7 @@ export default {
 
     head() {
         return {
-            title: this.title,
+            title: 'Programs Games Android' + ' || ' + this.title,
             meta: [
                 {
                     hid: 'description',

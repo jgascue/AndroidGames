@@ -2,11 +2,6 @@
     <section class="section">
         <div class="columns">
             <div class="column is-three-quarters">
-                <h2 class="title is-3 has-text-grey">
-                    <p>
-                        {{ id }}
-                    </p>
-                </h2>
 
                 <h1 class="title is-size-2 has-text-black has-text-weight-bold">
                     {{ articles[0].title }}

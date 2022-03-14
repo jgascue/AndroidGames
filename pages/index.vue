@@ -64,7 +64,7 @@ export default {
         } catch (err) {
             error({ message: 'something went wrong', statusCode: err.code })
         }
-    }, 
+    },
     data() {
         
         return {
@@ -79,12 +79,12 @@ export default {
     }, */
     head() {
         return {
-            title: 'Android Games',
+            title: 'Programs Games Android',
             meta: [
                 {
-                    hid: 'description',
-                    name: 'description',
-                    content: 'all games free to play',
+                    hid: 'Programs and Games Android News. Play for free Games',
+                    name: 'Programs Games Android',
+                    content: 'Programs and Games Android, mobiles, Tech, PC, News, and much more . Play for free Games',
                 },
             ],
         }

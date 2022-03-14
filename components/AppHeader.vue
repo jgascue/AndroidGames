@@ -12,7 +12,7 @@
 
               <div 
                 v-for="(item, key) of items" :key="key"
-                  class="menu-list is-align-items-flex-start"
+                  class="menu-list is-align-items-flex-start "
                 >
                   <NuxtLink :to="item.to" exact-active-class="is-active" class="has-text-primary">
                       <b-icon :icon="item.icon" /> {{ item.title }} 
@@ -51,34 +51,34 @@ export default {
                 {
                     title: 'Programs',
                     icon: 'file-table',
-                    to: { name: 'programs' },
+                    to: { name: 'programs_android' },
                 },
                 {
                     title: 'Games',
                     icon: 'nintendo-game-boy',
-                    to: { name: 'games' },
+                    to: { name: 'games_android' },
                 },
                 {
                     title: 'Android',
                     icon: 'bug',
-                    to: { name: 'android' },
+                    to: { name: 'android_info' },
                 },
                 {
                     title: 'Mobile',
                     icon: 'cellphone-nfc',
-                    to: { name: 'mobile' },
+                    to: { name: 'mobile_android' },
                 },
                 
                 {
                     title: 'Tech',
                     icon: 'video-input-antenna',
-                    to: { name: 'tech' },
+                    to: { name: 'tech_android' },
                 },
                 
                 {
                     title: 'News',
                     icon: 'new-box',
-                    to: { name: 'news' },
+                    to: { name: 'news_android' },
                 },
             ],
         }

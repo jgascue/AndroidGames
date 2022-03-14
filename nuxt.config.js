@@ -39,7 +39,8 @@ export default {
   components: true,
 
   serverMiddleware: [
-    '~/api/index'
+    { path: "/api", handler: "~/api/index.js" },
+/*     { path: "/games", handler: "~/api/games.js" } */
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules

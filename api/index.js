@@ -20,12 +20,14 @@ app.get('/', function (req, res) {
       const url = $(this).find('a').attr('href')
       const img = $(this).find('img').attr('src')
       const time = $(this).find('.assetTime').text()
+      const dataimg = $(this).find('img').attr('data-original')
       articles.push({
         title,
         subtitle,
         url,
         time,
         img,
+        dataimg
       })
     })
  /*    console.log(articles); */

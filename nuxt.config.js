@@ -40,6 +40,7 @@ export default {
 
   serverMiddleware: [
     { path: "/api", handler: "~/api/index.js" },
+    { path: "/sitemap", handler: "~/sitemap/sitemap.xml" },
 /*     { path: "/games", handler: "~/api/games.js" } */
   ],
 

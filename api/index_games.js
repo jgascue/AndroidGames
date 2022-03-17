@@ -4,30 +4,47 @@ const { default: axios } = require('axios')
 
 const app = express()
 
-const urlAndroid = 'https://www.androidcentral.com/'
+const urlGames = 'https://www.pcmag.com/picks/the-best-android-games'
 
 
 app.get('/', function (req, res) {
 
-  axios(urlAndroid).then((response) => {
+  axios(urlGames).then((response) => {
     const html = response.data
     const $ = cheerio.load(html)
     const articles = []
   
-    $('.feature-block-item-wrapper', html).each(function () {
-      const title = $(this).find('.article-name').text()
-      const subtitle = $(this).find('.article-strapline').text()
-      const url = $(this).find('a').attr('href')
-      const img = $(this).find('img').attr('data-original-mos')
+    $('.roundup-product-card', html).each(function () {
+      const title = $(this).find('h2').text()
+      const subtitle = $(this).find('p.leading-normal').text()
+      const img = $(this).find('iframe').attr('data-image-loader')
+      const text = $(this).find('.content-body').text()
+      const body = $(this).find('p').text()
+
+      const imgvideo = $(this).find('ytp-cued-thumbnail-overlay-image').attr('style')
+
+      const innertitles = $(html).find('h2').toArray().map(function(x){ 
+        return $(x).html()
+      })
+      const innertext = $(html).find('p').toArray().map(function(x){ 
+        return $(x).text()
+      })
+      const videos = $(html).find('img').toArray().map(function(x){ 
+        return $(x).attr('src')
+      })
+
       articles.push({
         title,
         subtitle,
-        url,
-        img
-      })
+        text,
+        innertitles,
+        imgvideo,
+        innertext,
+        videos,
+        img,
+        body
     })
-/*     console.log(articles); */
-    
+  })
     res.send(articles)
   }).catch(err => console.log(err))
 
@@ -38,12 +55,3 @@ module.exports = {
   path: '/api/games',
   handler: app,
 }
-
-/* 
-export default function (context) {
-  // Add the userAgent property to the context
-  context.userAgent = process.server
-    ? context.req.headers['user-agent']
-    : navigator.userAgent
-}
- */

@@ -5,19 +5,62 @@
                 {{ articles }}
             </pre>  -->
             <div class="column is-three-quarters">
-                <img :src="articles[0].img" :alt="articles[0].title">
-                <h2 class="title is-size-4 is-2 has-text-black">
+             <!--    <h2 class="title is-size-4 is-2 has-text-black">
                     <b-icon icon="rocket" size="is-large" />
                     {{ articles[0].title }}
-                </h2>
+                </h2> -->
+                
+                <h1> {{ title1 }} </h1>
                 <p class="subtitle has-text-primary">
-                    {{ articles[0].subtitle }}
+                    {{ subtitle1}}
                 </p>
 
-                <div v-for="(article, index) in articles" :key="index">
-                    <h2 class="subtitle has-text-primary">
-                        {{ article.innertitles }}
+                
+           <!--      <p v-html="articles[0].body">
+
+                </p> -->
+
+          <!--       <pre>
+                   {{ articles[0].body }}
+                </pre> -->
+                <div v-for="article of articles" :key="article">
+                    <h2>
+                        {{ article.title }}
                     </h2>
+                    
+         <!--         <video :src="articles.img"></video>
+                 <video width="640" height="420" controls>
+                    <source :src="articles.img" type="video/mp4">
+
+                </video> -->
+
+    <div class="aspect-radio">
+
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        :src="article.img"
+                        :srcdoc="article.imgvideo"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        :title="article.title"
+                    >
+                    </iframe>
+                 
+    </div>
+
+
+<!-- 
+                 <iframe :src="articles.img" frameborder="0"></iframe>
+                 {{ article.img}} -->
+
+                 <p>
+                     {{ article.body }}
+                 </p>
+                 <!--    <h2 class="subtitle has-text-primary">
+                        {{ article.innertitles }}
+                    </h2> -->
                 <!--      <p class="subtitle has-text-primary">
                         {{ article[index].innertext }}
                     </p> -->
@@ -57,29 +100,35 @@
 </template>
 
 <script>
-import axios from 'axios'
-import cheerio from 'cheerio'
+ import axios from 'axios'
+/* import cheerio from 'cheerio' */
 
 export default {
     name: 'GamesPage',
     components: {},
-    async asyncData({ params, error }) {
+    /* async asyncData({ params, error }) {
         try {
             const { data } = await axios.get(
-                'https://www.androidauthority.com/best-android-games-316202/'
+                'https://www.pcmag.com/picks/the-best-android-games'
                 
             )
             const html = data
             const $ = cheerio.load(html)
             const articles = []
-            const paragraf = []/* 
-            const point = [] */
+            const paragraf = []
+            
+            const title1 = $('h1').text()
+            const subtitle1 = $('p.leading-normal').text()
 
-            $('.news-article', html).each(function () {
-                const title = $(html).find('h1').text()
-                const subtitle = $(html).find('p.strapline').text()
-                const img = $(html).find('img.hero-image').attr('src')
-                const text = $(html).find('.bodyCopy').text()
+            $('.roundup-product-card', html).each(function () {
+                const title = $(this).find('h2').text()
+                const subtitle = $(this).find('p.leading-normal').text()
+                const img = $(this).find('iframe').attr('data-image-loader')
+                const text = $(this).find('.content-body').text()
+                const body = $(this).find('p').text()
+
+                const imgvideo = $(this).find('ytp-cued-thumbnail-overlay-image').attr('style')
+
                 const innertitles = $(html).find('h2').toArray().map(function(x){ return $(x).html()})
                 const innertext = $(html).find('p').toArray().map(function(x){ return $(x).text()})
                 const videos = $(html).find('img').toArray().map(function(x){ return $(x).attr('src')})
@@ -89,19 +138,33 @@ export default {
                     subtitle,
                     text,
                     innertitles,
+                    imgvideo,
                     innertext,
-                    videos,  
-                    img
+                    videos,
+                    img,
+                    body
                 })
             })
-/* 
-            const pages = $('div.rich-text p'); */
 
             return {
                 data,
+                title1,
+                subtitle1,
                 articles,
                 paragraf,
-               /*  pages, */
+            }
+            
+        } catch (err) {
+            error({ message: 'something went wrong', statusCode: err.code })
+        
+    },} */
+        async asyncData({ params, error }) {
+        try {
+            const { data } = await axios.get(
+                'https://programsgamesandroid.com/api/games'
+            )
+            return {
+                data
             }
             
         } catch (err) {
@@ -110,7 +173,10 @@ export default {
     },
     data() {
         return {
-          AllGames: []
+      /*       title1,
+            subtitle1,
+            articles,
+            paragraf, */
         }
     },
     /*     async fetch() {
@@ -134,22 +200,46 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
+
     h1 {
-        font-family: 'Fredoka', sans-serif;
+        font-size: 2em;
     }
+
     h2,
     h2.font-bold {
-        font-size: 2.5em;
+        font-size: 1.83em;
         font-weight: bold;
-        color:rgb(3, 72, 163);
+        margin-top: 40px;
+        margin-bottom: 10px;
         font-family: 'Fredoka', sans-serif;
     }
-    a.group, .hawk-link-parsed, strong {
+    a.group, .hawk-link-parsed, strong, .vanilla-image-block {
         display: none;
     }
- /*    .vanilla-image-block, .van-image-figure  {
-        display: none;
+   
+    .js-content-entity-body.content-entity-body {
+        overflow: hidden;
+    }
+    
+    figure {
+        text-align: start;
+        position: relative;
+        display: block ruby;
+        padding: 8px;
+        background: linear-gradient(90deg, yellow, #db05db);
+        width: auto !important;
+        margin: 10px 0;
+        font-weight: bold;
+        color: white;
+    }
 
-    } */
+    .aspect-radio {
+    }
+
+    iframe {
+        min-height: 400px;
+        margin: 20px 0;
+    }
+
 </style>

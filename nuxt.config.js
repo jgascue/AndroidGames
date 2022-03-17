@@ -40,6 +40,8 @@ export default {
 
   serverMiddleware: [
     { path: "/api", handler: "~/api/index.js" },
+    
+    { path: "/api/games", handler: "~/api/index_games.js" },
 /*     { path: "/games", handler: "~/api/games.js" } */
   ],
 
@@ -60,14 +62,22 @@ export default {
     id: 'ca-pub-4360588688411479'
   },
 
-/*   proxy: {
+  proxy: {
+/*     'https://www.gamespot.com/': {
+      
+      target: 'https://www.gamespot.com/',
+      pathRewrites: {
+        'https://localhost:3000.com/' : '/'
+      }
+    } */
+
     '/api': {
       target: 'https://www.freetogame.com/api/',
       pathRewrites: {
         '^/api' : '/'
       }
     }
-  }, */
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

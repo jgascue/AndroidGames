@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'programs games android',
+    title: 'Programs Games Android Free mobile tech news',
     htmlAttrs: {
       lang: 'en',
     },
@@ -49,14 +49,16 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/composition-api/module'
   ],
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-
     // https://go.nuxtjs.dev/buefy
     '@nuxtjs/axios',
-    ['nuxt-buefy', {css: false, scss: false}]
+    ['nuxt-buefy', {css: false, scss: false}],
+    ['@nuxtjs/google-adsense'],
   ],
+  'googleadsense': {
+    id: 'ca-pub-4360588688411479'
+  },
 
 /*   proxy: {
     '/api': {

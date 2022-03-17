@@ -134,9 +134,8 @@ export default {
 }
 </script>
 
-<style  lang="scss">
+<style scoped lang="scss">
     h1 {
-        
         font-family: 'Fredoka', sans-serif;
     }
     h2,

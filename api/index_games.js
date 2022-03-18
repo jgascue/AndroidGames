@@ -21,9 +21,9 @@ app.get('/', function (req, res) {
       const text = $(this).find('.content-body').text()
       const body = $(this).find('p').text()
 
-      const imgvideo = $(this).find('ytp-cued-thumbnail-overlay-image').attr('style')
+ /*      const imgvideo = $(this).find('ytp-cued-thumbnail-overlay-image').attr('style') */
 
-      const innertitles = $(html).find('h2').toArray().map(function(x){ 
+/*       const innertitles = $(html).find('h2').toArray().map(function(x){ 
         return $(x).html()
       })
       const innertext = $(html).find('p').toArray().map(function(x){ 
@@ -31,16 +31,17 @@ app.get('/', function (req, res) {
       })
       const videos = $(html).find('img').toArray().map(function(x){ 
         return $(x).attr('src')
-      })
+      } )
+      */
 
       articles.push({
         title,
         subtitle,
         text,
-        innertitles,
+    /*     innertitles,
         imgvideo,
-        innertext,
-        videos,
+        innertext, */
+        /* videos, */
         img,
         body
     })

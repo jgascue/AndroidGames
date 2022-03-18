@@ -5,48 +5,57 @@
                 {{ articles }}
             </pre>  -->
             <div class="column is-three-quarters">
-             <!--    <h2 class="title is-size-4 is-2 has-text-black">
+             <!--    <pre>
+                    {{ data }}
+                </pre> -->
+
+        <!--         <h2 class="title is-size-4 is-2 has-text-black">
                     <b-icon icon="rocket" size="is-large" />
-                    {{ articles[0].title }}
+                    {{ data[0].title }}
                 </h2> -->
                 
-                <h1> {{ title1 }} </h1>
-                <p class="subtitle has-text-primary">
-                    {{ subtitle1}}
-                </p>
-
-                
-           <!--      <p v-html="articles[0].body">
-
+           <!--      <h1> {{ title1 }} </h1> -->
+           <!--      <p class="subtitle has-text-primary">
+                    {{ data[0].subtitle}}
                 </p> -->
 
-          <!--       <pre>
-                   {{ articles[0].body }}
-                </pre> -->
-                <div v-for="article of articles" :key="article">
-                    <h2>
+                
+     
+                <div v-for="(game, index) in data" :key="index">
+                    <h2> {{ game.title }}  </h2>
+                    <p>
+                        {{ game.subtitle }}
+                    </p>
+                    <p>
+                        {{ game.body }}
+                    </p>
+
+              <!--       <video :src="game.img"></video> -->
+
+            <!--      <video width="640" height="420" controls>
+                    <source :src="game.img" >
+                </video>  -->
+
+               <!--      <img :src="game-img" alt=""> -->
+                
+                <!--     <h2>
                         {{ article.title }}
-                    </h2>
-                    
-         <!--         <video :src="articles.img"></video>
-                 <video width="640" height="420" controls>
-                    <source :src="articles.img" type="video/mp4">
-
-                </video> -->
-
-    <div class="aspect-radio">
-
+                    </h2> -->
                     <iframe
                         width="100%"
                         height="100%"
-                        :src="article.img"
-                        :srcdoc="article.imgvideo"
+                        :src="game.img"
                         frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen
-                        :title="article.title"
                     >
                     </iframe>
+         
+                </div>
+
+    <div class="aspect-radio">
+
+
                  
     </div>
 
@@ -56,7 +65,7 @@
                  {{ article.img}} -->
 
                  <p>
-                     {{ article.body }}
+                   <!--   {{ article.body }} -->
                  </p>
                  <!--    <h2 class="subtitle has-text-primary">
                         {{ article.innertitles }}
@@ -64,7 +73,7 @@
                 <!--      <p class="subtitle has-text-primary">
                         {{ article[index].innertext }}
                     </p> -->
-                </div>
+              <!--   </div> -->
               <!--   <h2 class="subtitle has-text-primary" v-for=" item in  articles[0].innertitles" :key="item">
                     {{ item }}
                 </h2> -->
@@ -161,7 +170,7 @@ export default {
         async asyncData({ params, error }) {
         try {
             const { data } = await axios.get(
-                'https://programsgamesandroid.com/api/games'
+                'https://programsgamesandroid.com/api/games/'
             )
             return {
                 data
@@ -173,26 +182,17 @@ export default {
     },
     data() {
         return {
-      /*       title1,
-            subtitle1,
-            articles,
-            paragraf, */
+
         }
     },
-    /*     async fetch() {
-        this.data = await fetch(
-            'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=android&api-key=EBJf2GTBMYvsdIEiRwdABGEqQ7CrY45p'
-        ).then(res=> res.json())
-        console.log(this.data);
-    }, */
     head() {
         return {
-            title: 'Android Games Android',
+            title: 'Games Android free, Best Android games in 2022',
             meta: [
                 {
-                    hid: 'description',
-                    name: 'description',
-                    content: 'all games free to play',
+                    hid: 'Games Android free, Best Android games in 2022',
+                    name: 'Games Android free, Best Android games in 2022',
+                    content: 'Games Android free, Best Android games in 2022, all games free to play',
                 },
             ],
         }

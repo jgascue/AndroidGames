@@ -200,7 +200,7 @@ export default {
 }
 </script>
 
-<style  lang="scss">
+<style scoped lang="scss">
 
     h1 {
         font-size: 2em;
@@ -214,7 +214,7 @@ export default {
         margin-bottom: 10px;
         font-family: 'Fredoka', sans-serif;
     }
-    a.group, .hawk-link-parsed, strong, .vanilla-image-block {
+    a.group, .hawk-link-parsed, .vanilla-image-block {
         display: none;
     }
    

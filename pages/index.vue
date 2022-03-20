@@ -9,12 +9,12 @@
                     <div v-for="article of data" :key="article.id" class="my-4 columns" >
 
                             <div class="column is-one-quarter">
-                                <a :href="article.url">
+                                <a :href="article.url" :alt="article.title">
                                     <img :src="article.img" :alt="article.title" />
                                 </a>
                             </div>
                             <div class="column is-two-quarters">
-                                <a :href="article.url">
+                                <a :href="article.url" :alt="article.title">
                                     <h2 class="title is-4 is-family-sans-serif has-text-dark">
                                         <strong>
                                             {{ article.title}}
@@ -55,7 +55,7 @@ export default {
     async asyncData({ params, error }) {
         try {
             const { data } = await axios.get(
-                'https://programsgamesandroid.com/api/'
+                'https://www.programsgamesandroid.com/api/'
             )
             return {
                 data

@@ -1,10 +1,8 @@
 <template>
   <section class="section">
     <h2 class="title is-3 has-text-grey">
-<!--     <p>
-        {{ id }}
-    </p>   -->    
-      {{ params }}
+      {{ id }}
+      <b-icon icon="rocket" size="is-large" />
     </h2>
     <h3 class="subtitle is-6 has-text-grey">
       Author: 
@@ -42,20 +40,19 @@ export default {
         } catch (err) {
             error({ message: 'something went wrong', statusCode: err.code })
         }
-    },
+    }, 
     data() {
         
         return {
             AllGames: [],
             articles: [],
-            
         }
     },
-/*      async fetch() {
+     async fetch() {
         this.article = await fetch(`https://www.nytimes.com/`).then(res =>
           res.json()
         )
-    }, */
+    },
 
     head() {
         return {

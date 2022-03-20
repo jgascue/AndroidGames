@@ -75,7 +75,7 @@ export default {
       pathRewrites: {
         '^/api' : '/'
       }
-    }
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

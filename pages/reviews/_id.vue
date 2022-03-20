@@ -4,8 +4,11 @@
             <div class="column is-three-quarters">
 
                 <h1 class="title is-size-2 has-text-black has-text-weight-bold">
-                    {{ articles[0].title }}
+                    {{ articles[0].title }} 
                 </h1>
+               <!--  <pre>
+                    {{ stage }}
+                </pre> -->
                 <p
                     class="
                         subtitle
@@ -13,19 +16,29 @@
                         has-text-black has-text-weight-semibold
                     "
                 >
-                    {{ articles[0].subtitle }}
+                <!--     {{ articles[0].subtitle }} -->
                 </p>
 
                 <p>
                     Category:
 
-                    <strong> {{ stage.year }} </strong>
+                    <!-- <strong> {{ stage.year }} </strong> -->
                 </p>
 
-                <h3 class="subtitle is-6 has-text-grey">Author: cnet.com</h3>
+                <h3 class="subtitle is-6 has-text-grey">Author: pcmag.com</h3>
                 <!--         <img :src="articles[1].img" :alt="articles[0].title "/> -->
 
-                <p v-html="articles[1].text"></p>
+                <div v-html="articles[1].body"></div>
+                    <p v-html="articles[1].body2"></p>
+                    <p v-html="articles[1].body3"></p>
+                    <p v-html="articles[1].body4"></p>
+                    <p v-html="articles[1].body5"></p>
+                    <p v-html="articles[1].body6"></p>
+                    <p v-html="articles[1].body7"></p>
+                    <p v-if="articles[1].body8" v-html="articles[1].body8"></p>
+                    <p>
+                        <a :href="articles[1].link"> Best  tech product 2022</a>
+                    </p>
             </div>
             
             <div class="column is-one-quarters">
@@ -48,24 +61,50 @@ export default {
 
         try {
             const { data } = await axios.get(
-                `https://www.cnet.com/tech/${stage.year}/${id}`
+                `https://www.pcmag.com/reviews/${stage.id}`
             )
             const html = data
             const $ = cheerio.load(html)
+
             const articles = []
-            const paragraf = []
+            const title = $(html).find('h1').text()
 
-            $('.content-header', html).each(function () {
-                const title = $(html).find('h1').text()
-                const subtitle = $(html).find('.c-head_dek').text()
+            articles.push({
+                title,
+            })
 
+            $('#article', html).each(function () {
+                const titleGame = $(html).find('h2').text()
+                const subtitle = $(html).find('h3').text()
+                const img = $(html).find('img').attr('src')
+                const text = $(html).find('.content-body').text()
+                const body = $(html).find('p:first-child').text()
+                const body2 = $(html).find('p:nth-child(2)').text()
+                const body3 = $(html).find('p:nth-child(3)').text()
+                const body4 = $(html).find('p:nth-child(4)').text()
+                const body5 = $(html).find('p:nth-child(5)').text()
+                const body6 = $(html).find('p:nth-child(6)').text()
+                const body7 = $(html).find('p:nth-child(7)').text()
+                const body8 = $(html).find('p:nth-child(8)').text()
+                const link = $(html).find('.rich-text a').attr('href')
                 articles.push({
-                    title,
+                    titleGame,
                     subtitle,
+                    text,
+                    img,
+                    body,
+                    body2,
+                    body3,
+                    body4,
+                    body5,
+                    body6,
+                    body7,
+                    body8,
+                    link
                 })
             })
 
-            $('.article-main-body', html).each(function () {
+/*             $('.article-main-body', html).each(function () {
                 const url = $(html).find('a').attr('href')
                 const img = $('.imageContainer').find('img').attr('src')
                 const time = $(html).find('.assetTime').text()
@@ -81,40 +120,12 @@ export default {
                     img,
                     text,
                 })
-            })
-
-            /*             $('.article-main-body p', html).each(function () {
-    /*         const text =  $('p').text(); */
-            /*         const text = $('p').wrapInner().text();
-            const test = $('.article-main-body p', text).each(function () {
-                    text.push({
-                    /* text, 
-                    test,
-                })
-
-            })
-
-                paragraf.push({
-                    /* text,
-                    text,
-                })
-
             }) */
-
-            /*      $('.article-main-body p', html).each(function () {
-            const text = $('.article-main-body p').text();
-                articles.push({
-                    text
-                })
-            }) */
-
-            /*  console.log(articles); */
 
             return {
                 data,
                 stage,
                 articles,
-                paragraf,
                 id,
             }
         } catch (err) {
@@ -123,7 +134,6 @@ export default {
     },
     data() {
         return {
-            AllGames: [],
             articles: [],
         }
     },

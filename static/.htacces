@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^programsgamesandroid.com [NC]
+RewriteRule ^(.*)$ http://www.programsgamesandroid.com/$1 [L,R=301]

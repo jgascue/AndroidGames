@@ -21,22 +21,7 @@
 
                     <strong> {{ stage.year }} </strong>
                 </p>
-           <!--      
-                <p>
-                    <pre>
-                        <small>
-                            {{ paragraf  }}
-                        </small> 
-                    </pre>
-                </p>
 
-                <p>
-                    <pre>
-                        <small>
-                            {{ articles  }}
-                        </small> 
-                    </pre>
-                </p> -->
 
                 <h3 class="subtitle is-6 has-text-grey">Author: cnet.com</h3>
                 <!--         <img :src="articles[1].img" :alt="articles[0].title "/> -->

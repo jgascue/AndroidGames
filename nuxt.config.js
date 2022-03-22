@@ -12,6 +12,13 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+        'data-ad-client': 'ca-pub-4360588688411479',
+        async: true
+      }
+    ]
   },
 
   link: [
@@ -62,13 +69,7 @@ export default {
   },
 
   proxy: {
-/*     'https://www.gamespot.com/': {
-      
-      target: 'https://www.gamespot.com/',
-      pathRewrites: {
-        'https://localhost:3000.com/' : '/'
-      }
-    } */
+
 
     '/api': {
       target: 'https://www.freetogame.com/api/',

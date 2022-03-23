@@ -30,7 +30,6 @@ app.get('/', function (req, res) {
         dataimg
       })
     })
- /*    console.log(articles); */
     
     res.send(articles)
   }).catch(err => console.log(err))

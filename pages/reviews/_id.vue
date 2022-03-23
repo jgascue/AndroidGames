@@ -6,9 +6,6 @@
                 <h1 class="title is-size-2 has-text-black has-text-weight-bold">
                     {{ articles[0].title }} 
                 </h1>
-               <!--  <pre>
-                    {{ stage }}
-                </pre> -->
                 <p
                     class="
                         subtitle
@@ -139,12 +136,12 @@ export default {
     },
     head() {
         return {
-            title: 'Android Games',
+            title: `Android Games: ${this.articles[0].title}. - Programs & Games Android`,
             meta: [
                 {
-                    hid: 'description',
-                    name: 'description',
-                    content: 'all games free to play',
+                    hid: `Android Games: ${this.articles[0].title}`,
+                    name: `Android Games: ${this.articles[0].title}`,
+                    content: `Android Games: ${this.articles[0].title}`,
                 },
             ],
         }

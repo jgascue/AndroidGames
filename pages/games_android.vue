@@ -3,24 +3,20 @@
         <div class="columns is-multiline">
 
             <div class="column is-three-quarters">
-            <!--     <pre>
-                    {{ data }}
-                </pre> -->
-
-               
+                
                 <h1 class="title has-text-black">
                     {{ data[0].title }}
                 </h1>
 
                 <div v-for="(game, index) in data" :key="index">
-                    <h1 class="warning mp-3">
+                    <h2 class="title warning mp-3">
                         <a v-if="game.link" :href="game.link.slice(21, 100)" :alt="game.title" >
                             {{ game.titleGame }}
                         </a>
                         <p v-else>
                             {{ game.titleGame }}
                         </p>
-                    </h1>
+                    </h2>
              <!--        <h2>{{ game.titleGame }}</h2> -->
                     <p>
                         {{ game.subtitle }}

@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 
 $family-sans-serif: 'Rubik', sans-serif;
 
@@ -32,9 +34,22 @@ h2 {
    font-size: 1.7em;
    font-family: 'Rubik', sans-serif;
 }
-/* p {
-   font-family: 'Rubik', sans-serif;
-} */
+
+.claim {
+   font-size: 1em;
+   text-align: center;
+   font-family: 'Fredoka', sans-serif;
+
+   @include mobile {
+      text-align: justify;
+   }
+}
+
+.logo {
+   @include mobile {
+      font-size: 0.9em !important;
+   }
+}
 
 .imageContainer img {
    display: block;

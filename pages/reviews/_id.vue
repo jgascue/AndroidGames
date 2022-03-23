@@ -6,36 +6,28 @@
                 <h1 class="title is-size-2 has-text-black has-text-weight-bold">
                     {{ articles[0].title }} 
                 </h1>
-                <p
-                    class="
-                        subtitle
-                        is-size-4
-                        has-text-black has-text-weight-semibold
-                    "
-                >
-                <!--     {{ articles[0].subtitle }} -->
-                </p>
+                <h2 class="subtitle is-size-5">
+                    {{ articles[0].subtitle }}
+                </h2>
 
                 <p>
-                    Category:
-
+                    <img :src="articles[1].img" :alt="articles[0].title "/>
                     <!-- <strong> {{ stage.year }} </strong> -->
                 </p>
+            
+                       
 
-                <h3 class="subtitle is-6 has-text-grey">Author: pcmag.com</h3>
-                <!--         <img :src="articles[1].img" :alt="articles[0].title "/> -->
-
-                <div v-html="articles[1].body"></div>
-                    <p v-html="articles[1].body2"></p>
-                    <p v-html="articles[1].body3"></p>
-                    <p v-html="articles[1].body4"></p>
-                    <p v-html="articles[1].body5"></p>
-                    <p v-html="articles[1].body6"></p>
-                    <p v-html="articles[1].body7"></p>
-                    <p v-if="articles[1].body8" v-html="articles[1].body8"></p>
-                    <p>
-                        <a :href="articles[1].link"> Best  tech product 2022</a>
-                    </p>
+                <p v-html="articles[1].body"></p>
+                <p v-html="articles[1].body2"></p>
+                <p v-html="articles[1].body3"></p>
+                <p v-html="articles[1].body4"></p>
+                <p v-html="articles[1].body5"></p>
+                <p v-html="articles[1].body6"></p>
+                <p v-html="articles[1].body7"></p>
+                <p v-if="articles[1].body8" v-html="articles[1].body8"></p>
+                <p>
+                    <a :href="articles[1].link.slice(21)"> {{ articles[1].linktext }}</a>
+                </p>
             </div>
             
             <div class="column is-one-quarters">
@@ -66,14 +58,16 @@ export default {
             const articles = []
             const title = $(html).find('h1').text()
 
+            const subtitle = $(html).find('p.leading-normal').text()
+
             articles.push({
                 title,
+                subtitle,
             })
 
             $('#article', html).each(function () {
                 const titleGame = $(html).find('h2').text()
-                const subtitle = $(html).find('h3').text()
-                const img = $(html).find('img').attr('src')
+                const img = $(html).find('.object-contain').attr('src')
                 const text = $(html).find('.content-body').text()
                 const body = $(html).find('p:first-child').text()
                 const body2 = $(html).find('p:nth-child(2)').text()
@@ -83,10 +77,10 @@ export default {
                 const body6 = $(html).find('p:nth-child(6)').text()
                 const body7 = $(html).find('p:nth-child(7)').text()
                 const body8 = $(html).find('p:nth-child(8)').text()
-                const link = $(html).find('.rich-text a').attr('href')
+                const link = $(html).find('.rich-text a:nth-child(2)').attr('href')
+                const linktext = $(html).find('.rich-text a:nth-child(2)').html()
                 articles.push({
                     titleGame,
-                    subtitle,
                     text,
                     img,
                     body,
@@ -97,7 +91,8 @@ export default {
                     body6,
                     body7,
                     body8,
-                    link
+                    link,
+                    linktext
                 })
             })
 

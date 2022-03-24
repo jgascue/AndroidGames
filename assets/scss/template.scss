@@ -60,3 +60,56 @@ h2 {
 svg {
   display: none;
 }
+
+
+
+//----------------------------------------------------------------
+//FOOTER
+//----------------------------------------------------------------
+
+
+.footer {
+    background-color: rgb(26, 1, 29);
+    background: linear-gradient(15deg, #025223, #010f29, #015d69);
+    color: rgb(177, 177, 177);
+    font-size: .734em;
+    text-align: justify;
+    justify-content: center;
+    line-height: 2.5em;
+    padding: 3rem 1.5rem 3rem !important;
+
+    .column {
+        border-right: 2px dotted rgba(72, 151, 151, 0.418);
+        border-left: 2px solid rgb(0, 4, 10);
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+    }
+    .column:first-child {
+        border-left: 0px;
+    }
+    .column:last-child {
+        border-right: 0px;
+    }
+    p a {
+         color: rgb(11, 161, 116);
+         font-weight: 500;
+    }
+
+    p:nth-child(2) a {
+        color: rgb(9, 134, 97);
+    }
+    p:nth-child(3) a {
+        color: rgb(9, 121,  97);
+    }
+    p:nth-child(4) a {
+        color: rgb(9, 105, 97);
+    }
+    p:nth-child(5) a {
+        color: rgb(9, 96, 97);
+    }
+    p a:hover {
+        color: rgb(9, 83, 97);
+    }
+
+}

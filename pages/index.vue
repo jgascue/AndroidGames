@@ -5,7 +5,6 @@
             <h1 class="is-size-2 title has-text-weight-bold">Android Programs Games and much more</h1>
                 <div >
                     <div v-for="article of data" :key="article.id" class="my-4 columns" >
-
                             <div class="column is-one-quarter has-background-link">
                                 <a :href="article.url" :alt="article.title">
                                     <img :src="article.img" :alt="article.title" class="is-rounded box p-1" />

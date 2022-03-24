@@ -29,6 +29,10 @@ export default {
     { 
       rel: 'stylesheet', 
       type: 'https://fonts.googleapis.com/css2?family=Rubik&display=swap'
+    },
+    { 
+      rel: 'stylesheet', 
+      type: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap'
     }
   ],
 

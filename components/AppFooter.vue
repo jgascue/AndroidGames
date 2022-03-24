@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="column is-flex is-justify-content-center is-flex-direction-column is-3">
+            <div class="column is-flex is-flex-direction-column is-3">
                 <div>
                     <p class="bd-footer-link-title">  <nuxt-link to="/" target="_blank" rel="nofollow" class="">Android Programs </nuxt-link> </p>
                     <p class="bd-footer-link-title">  <nuxt-link to="/" target="_blank" rel="nofollow" class="">Android News </nuxt-link></p>
@@ -28,10 +28,9 @@
                 </div>
             </div>
             
-            <div class="column is-flex is-justify-content-center is-flex-direction-column is-3">
+            <div class="column is-flex is-flex-direction-column is-3">
                 <div>
-                <p class="bd-footer-link-title"> Android News</p>
-
+                    <p class="bd-footer-link-title"> Android News</p>
                 </div>
             </div>
             

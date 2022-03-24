@@ -17,7 +17,7 @@
                             {{ game.titleGame }}
                         </p>
                     </h2>
-             <!--        <h2>{{ game.titleGame }}</h2> -->
+        
                     <p>
                         {{ game.subtitle }}
                     </p>

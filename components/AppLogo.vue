@@ -1,6 +1,6 @@
 <template>
-    <div class="container has-text-centered">
-        <div class=" title has-text-centered pt-3 px-2 pb-0 mb-0">
+    <div class="container">
+        <div class="title has-text-centered pt-3 px-2 pb-3 mb-0">
             <strong>
                 <a class="logo has-text-success-dark" href="/" title="Programs and games Android"
                 >
@@ -8,7 +8,7 @@
                 </a>
             </strong>
         </div>
-        <p class="claim p-3 m-3"> 
+        <p class="claim p-3 is-hidden-mobile"> 
             <span class="has-text-grey-light">
                 Programs and Games Android and not Android. Play for free Games,
                 discover new programs and find the last Android News. <br> Tech, Mobiles, Reviews, News Android.
@@ -24,7 +24,6 @@
     .app-logo {
         height: 180px;
     }
-
     a.logo {
        font-family: "Fredoka", sans-serif;
        font-weight: bold;

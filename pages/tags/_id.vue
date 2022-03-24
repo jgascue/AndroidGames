@@ -59,7 +59,7 @@ export default {
     components: {},
     async asyncData({ params, error }) {
         try {
-            const { data } = await axios.get('http://localhost:3000/api/tags/')
+            const { data } = await axios.get('https://www.programsgamesandroid.com/api/tags/')
             return {
                 data
             }

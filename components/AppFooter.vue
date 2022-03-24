@@ -21,27 +21,62 @@
 
             <div class="column is-flex is-flex-direction-column is-3">
                 <div>
-                    <p class="bd-footer-link-title">  <nuxt-link to="/" target="_blank" rel="nofollow" class="">Android Programs </nuxt-link> </p>
-                    <p class="bd-footer-link-title">  <nuxt-link to="/" target="_blank" rel="nofollow" class="">Android News </nuxt-link></p>
-                    <p class="bd-footer-link-title">  <nuxt-link to="/" target="_blank" rel="nofollow" class="">Android Tech </nuxt-link></p>
-                    <p class="bd-footer-link-title">  <nuxt-link to="/" target="_blank" rel="nofollow" class="">Android Mobiles </nuxt-link></p>
+                    <p class="bd-footer-link-title">  
+                        <nuxt-link to="/" rel="nofollow" class="">Android Programs </nuxt-link>
+                    </p>
+                    <p class="bd-footer-link-title">  
+                        <nuxt-link to="/" rel="nofollow" class="">Android News </nuxt-link>
+                    </p>
+                    <p class="bd-footer-link-title">  
+                        <nuxt-link to="/" rel="nofollow" class="">Android Tech </nuxt-link>
+                    </p>
+                    <p class="bd-footer-link-title">  
+                        <nuxt-link to="/" rel="nofollow" class="">Android Mobiles </nuxt-link>
+                    </p>
                 </div>
             </div>
             
             <div class="column is-flex is-flex-direction-column is-3">
                 <div>
-                    <p class="bd-footer-link-title"> Android News</p>
+                    <p class="bd-footer-link-title">  
+                        <nuxt-link to="/" rel="nofollow">
+                            Android Programs
+                        </nuxt-link>
+                    </p>
+                    <p class="bd-footer-link-title">  
+                        <nuxt-link to="/" rel="nofollow">
+                            Android News
+                        </nuxt-link>
+                    </p>
+                    <p class="bd-footer-link-title">  
+                        <nuxt-link to="/" rel="nofollow">
+                            Android Tech 
+                        </nuxt-link>
+                    </p>
+                    <p class="bd-footer-link-title">  
+                        <nuxt-link to="/" rel="nofollow">
+                            Android Mobiles
+                        </nuxt-link>
+                    </p>
                 </div>
             </div>
             
             <div class="column is-flex is-justify-content-center is-flex-direction-column is-3">
                 <div>
-                    <p class="bd-footer-link-title" v-for="n in 2" :key="n"> Android Reviews</p>
                     <p class="bd-footer-link-title">
-                        <nuxt-link to="https://www.androidauthority.com" target="_blank" rel="nofollow" class="">Android Authority </nuxt-link>
+                        <nuxt-link to="https://www.programsgamesandroid.com" target="_blank" rel="nofollow" class="">
+                            Android Reviews
+                        </nuxt-link>
                     </p>
                     <p class="bd-footer-link-title">
-                        <nuxt-link to="https://www.androidcentral.com"  target="_blank" rel="nofollow" class="">Android Central Resources</nuxt-link>
+                        <nuxt-link to="https://www.androidauthority.com" target="_blank" rel="nofollow" class="">
+                            Android Authority
+                        </nuxt-link>
+                    </p>
+                    <p class="bd-footer-link-title">
+                        <nuxt-link to="https://www.androidcentral.com"  target="_blank" rel="nofollow" class="">
+                            Android Central Resources
+                        </nuxt-link>
                     </p>
                 </div>
             </div>

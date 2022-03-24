@@ -1,37 +1,45 @@
 <template>
-    <section class="section">
+    <section class="section reviews">
         <div class="columns">
             <div class="column is-three-quarters">
-
                 <h1 class="title is-size-2 has-text-black has-text-weight-bold">
-                    {{ articles[0].title }} 
+                    {{ articles[0].title }}
                 </h1>
                 <h2 class="subtitle is-size-5">
                     {{ articles[0].subtitle }}
                 </h2>
 
                 <p>
-                    <img :src="articles[1].img" :alt="articles[0].title "/>
+                    <img :src="articles[1].img" :alt="articles[0].title" />
                     <!-- <strong> {{ stage.year }} </strong> -->
                 </p>
-            
-                       
 
                 <p v-html="articles[1].body"></p>
                 <p v-html="articles[1].body2"></p>
-                <p v-html="articles[1].body3"></p>
-                <p v-html="articles[1].body4"></p>
-                <p v-html="articles[1].body5"></p>
-                <p v-html="articles[1].body6"></p>
-                <p v-html="articles[1].body7"></p>
+                <p v-if="articles[1].body3" v-html="articles[1].body3"></p>
+                <p v-if="articles[1].body4" v-html="articles[1].body4"></p>
+                <p></p>
+                <p></p>
+                <p v-if="articles[1].body5" v-html="articles[1].body5"></p>
+                <p v-if="articles[1].body6" v-html="articles[1].body6"></p>
+                <p v-if="articles[1].body7" v-html="articles[1].body7"></p>
                 <p v-if="articles[1].body8" v-html="articles[1].body8"></p>
+
+                <p></p>
+                <p></p>
+                <p v-if="articles[1].body9" v-html="articles[1].body9"></p>
+                <p v-if="articles[1].body10" v-html="articles[1].body10"></p>
+                <p v-if="articles[1].body11" v-html="articles[1].body11"></p>
+                <p v-if="articles[1].body12" v-html="articles[1].body12"></p>
                 <p>
-                    <a :href="articles[1].link.slice(21)"> {{ articles[1].linktext }}</a>
+                    Next Review:
+                    <a v-if="articles[1].link" :href="articles[1].link">
+                        {{ articles[1].linktext }}</a
+                    >
                 </p>
             </div>
-            
-            <div class="column is-one-quarters">
-            </div>
+
+            <div class="column is-one-quarters"></div>
         </div>
     </section>
 </template>
@@ -77,8 +85,16 @@ export default {
                 const body6 = $(html).find('p:nth-child(6)').text()
                 const body7 = $(html).find('p:nth-child(7)').text()
                 const body8 = $(html).find('p:nth-child(8)').text()
-                const link = $(html).find('.rich-text a:nth-child(2)').attr('href')
-                const linktext = $(html).find('.rich-text a:nth-child(2)').html()
+                const body9 = $(html).find('p:nth-child(9)').text()
+                const body10 = $(html).find('p:nth-child(10)').text()
+                const body11 = $(html).find('p:nth-child(11)').text()
+                const body12 = $(html).find('p:nth-child(12)').text()
+                const link = $(html)
+                    .find('.leading-loose:first-child a')
+                    .attr('href')
+                const linktext = $(html)
+                    .find('.leading-loose:first-child a')
+                    .text()
                 articles.push({
                     titleGame,
                     text,
@@ -91,12 +107,16 @@ export default {
                     body6,
                     body7,
                     body8,
+                    body9,
+                    body10,
+                    body11,
+                    body12,
                     link,
-                    linktext
+                    linktext,
                 })
             })
 
-/*             $('.article-main-body', html).each(function () {
+            /*             $('.article-main-body', html).each(function () {
                 const url = $(html).find('a').attr('href')
                 const img = $('.imageContainer').find('img').attr('src')
                 const time = $(html).find('.assetTime').text()

@@ -51,11 +51,6 @@ export default {
             
         }
     },
-/*      async fetch() {
-        this.article = await fetch(`https://www.nytimes.com/`).then(res =>
-          res.json()
-        )
-    }, */
 
     head() {
         return {
@@ -68,10 +63,6 @@ export default {
                 },
             ],
         }
-        
     },
-    
-
-
 }
 </script>

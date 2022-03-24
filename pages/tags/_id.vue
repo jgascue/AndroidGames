@@ -1,28 +1,28 @@
 <template>
     <section class="section">
-            <div class="columns">
-                <div class="column is-one-quarter">
-
-                    <h1 class="title is-size-2 has-text-black has-text-weight-bold">
-                        {{ data[0].title }} 
-                    </h1>
-                    
-                    <h2 class="subtitle is-size-4 has-text-warning has-text-weight-bold">
-                        {{ data[0].subtitle }} 
-                    </h2>
-                </div>
-         <!--   <pre>
-                    {{ data[0].title  }}
-                </pre> -->
-           
-                <div class="column is-one-quarter">
-                    <p>
-                        Category:
-                        <strong> {{ data[0].title }} </strong>
-                    </p>
-                </div>
+        <div class="columns">
+            <div class="column is-one-quarter">
+                <h1 class="title is-size-2 has-text-black has-text-weight-bold">
+                    {{ data[0].title }} 
+                </h1>
+                <h2 class="subtitle is-size-4 has-text-warning has-text-weight-bold">
+                    {{ data[0].subtitle }} 
+                </h2>
             </div>
-                    
+
+            <!--
+                <pre>
+                    {{ data[0].title  }}
+                </pre>
+            -->
+           
+            <div class="column is-one-quarter">
+                <p>
+                    Category:
+                    <strong> {{ data[0].title }} </strong>
+                </p>
+            </div>
+        </div>
             <div v-for="(item, index) in data" :key="index" class="columns ">
                 <div class="column is-one-quarter">
                     <img :src="item.img" :alt="item.titleItem">
@@ -44,9 +44,7 @@
                         {{ item.text }}
                     </p>
                 </div>
-
             </div>
-                
     </section>
 </template>
 
@@ -88,24 +86,27 @@ export default {
 </script>
 
 <style>
-html {
-    font-family: 'Fredoka', sans-serif;
-}
+    html {
+        font-family: 'Fredoka', sans-serif;
+    }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Fredoka', sans-serif;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Fredoka', sans-serif;
+    }
 
-p {
-    margin: 10px 0;
-}
+    .is-one-quarter {
+        border-radius: 4px;
+    }
+    p {
+        margin: 10px 0;
+    }
 
-h1,
-h2,
-h3 {
-    font-weight: bold;
-    font-family: 'Fredoka', sans-serif;
-}
+    h1,
+    h2,
+    h3 {
+        font-weight: bold;
+        font-family: 'Fredoka', sans-serif;
+    }
 </style>

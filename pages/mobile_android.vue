@@ -4,7 +4,7 @@
       Mobile <b-icon icon="rocket" size="is-large" />
     </h1>
     <h3 class="subtitle is-6 has-text-grey">
-      Mobile
+      Mobiles Android
     </h3>
   </section>
 </template>

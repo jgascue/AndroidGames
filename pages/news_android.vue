@@ -5,7 +5,7 @@
     </h1>
     
     <h3 class="subtitle is-6 has-text-grey">
-      News
+      News Android
     </h3>
   </section>
 </template>

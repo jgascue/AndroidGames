@@ -15,14 +15,6 @@
 
 import axios from 'axios'
 
-/* import {
-    defineComponent,
-    useFetch,
-    useContext,
-    ref,
-} from '@nuxtjs/composition-api'
-*/
-
 export default {
     name: 'ProgramsPage',
     components: {},

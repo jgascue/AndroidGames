@@ -52,6 +52,7 @@ import cheerio from 'cheerio'
 export default {
     name: 'ProgramsPage',
     components: {},
+    
     async asyncData({ params, error }) {
         const id = params.id
         const stage = params
@@ -115,24 +116,6 @@ export default {
                     linktext,
                 })
             })
-
-            /*             $('.article-main-body', html).each(function () {
-                const url = $(html).find('a').attr('href')
-                const img = $('.imageContainer').find('img').attr('src')
-                const time = $(html).find('.assetTime').text()
-                const code = $(html).remove($('.videoContainer'))
-
-                const codeclean = $(code).find('.article-main-body')
-
-                const text = codeclean.html()
-
-                articles.push({
-                    url,
-                    time,
-                    img,
-                    text,
-                })
-            }) */
 
             return {
                 data,

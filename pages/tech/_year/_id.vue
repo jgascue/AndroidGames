@@ -2,9 +2,12 @@
     <section class="section">
         <div class="columns">
             <div class="column is-three-quarters">
+       <!--          <pre>
+                    {{ articles }}
+                </pre> -->
 
                 <h1 class="title is-size-2 has-text-black has-text-weight-bold">
-                    {{ articles[0].title }} 
+                    {{ articles[0].title }}
                 </h1>
                 <p
                     class="
@@ -18,18 +21,31 @@
 
                 <p>
                     Category:
-
                     <strong> {{ stage.year }} </strong>
                 </p>
 
+                <img class="imageContainer" :src="articles[1].img" :alt="articles[0].title">
 
-                <h3 class="subtitle is-6 has-text-grey">Author: cnet.com</h3>
-                <!--         <img :src="articles[1].img" :alt="articles[0].title "/> -->
+                <div class="body-page" v-for="(list, i) in filterlist" :key="i" >
 
-                <p v-html="articles[1].text"></p>
+                <!--     <p v-for="(element) in filterlist[i]" :key="element"> -->
+                     <div v-html="list[i]"></div>
+                   <!--  </p> -->
+
+                </div>
+
+                           
+                <div v-if="articles[1].nextTitleLink">
+                    <a :href="articles[1].nextTitleLink">{{ articles[1].nextTitle }}</a>
+                </div>
+                <div v-if="articles[1].nextTitleLink2">
+                    <a :href="articles[1].nextTitleLink2">{{ articles[1].nextTitle2 }}</a>
+                </div>
+
             </div>
             
             <div class="column is-one-quarters">
+                ...  
             </div>
         </div>
     </section>
@@ -43,6 +59,7 @@ import cheerio from 'cheerio'
 export default {
     name: 'ProgramsPage',
     components: {},
+    
     async asyncData({ params, error }) {
         const id = params.id
         const stage = params
@@ -55,6 +72,7 @@ export default {
             const $ = cheerio.load(html)
             const articles = []
             const paragraf = []
+            const h2titles = []
 
             $('.content-header', html).each(function () {
                 const title = $(html).find('h1').text()
@@ -67,33 +85,54 @@ export default {
             })
 
             $('.article-main-body', html).each(function () {
+                
                 const url = $(html).find('a').attr('href')
                 const img = $('.imageContainer').find('img').attr('src')
                 const time = $(html).find('.assetTime').text()
-                const imgdata = $('.imageContainer').find('img').attr('data-original')
                 const text = $(html).find('.article-main-body').html()
-
-                $('p', text).each(function () {
-
-                    const point = $(text).find('p').text()
-                    paragraf.push({
-                        point
-                    })
-                })
+                const nextTitle = $(html).find('.speakableTextP1').first().find('a').first().text()
+                const nextTitleLink = $(html).find('.speakableTextP1').first().find('a').first().attr('href')
+                const nextTitle2 = $(html).find('.speakableTextP2').first().find('a').first().text()
+                const nextTitleLink2 = $(html).find('.speakableTextP2').first().find('a').first().attr('href')
 
                 articles.push({
+                    img,  
                     url,
                     time,
-                    img,
-                    imgdata,
                     text,
+                    nextTitle,
+                    nextTitleLink,
+                    nextTitle2,
+                    nextTitleLink2,
                 })
             })
 
+            const subtitles = []
+            const elements = []
+            const filterlist = []
+
+            $('.article-main-body', html).find('p').siblings().each(function (index, element) {
+                const text = elements.push($(element).text())
+            
+                elements.push(text);
+
+                const filtered = elements.filter(function(el, index) {
+                    return index % 2 === 0;
+                });
+
+                filterlist.push(filtered)
+            })
+
+
+        
             return {
                 data,
                 stage,
                 articles,
+                h2titles,
+                subtitles,
+                elements,
+                filterlist,
                 paragraf,
                 id,
             }
@@ -124,8 +163,12 @@ export default {
     computed: { 
 
     },
-
+    mounted () { 
+        const imatges = this.$el.querySelector('img');
+        imatges.classList.add('imatges-cool');
+    }
 }
+
 </script>
 
 <style>
@@ -143,10 +186,23 @@ p {
     margin: 10px 0;
 }
 
+div {
+    margin-bottom:20px;
+}
 h1,
 h2,
 h3 {
     font-weight: bold;
     font-family: 'Fredoka', sans-serif;
+}
+
+.body-page img {
+    display: block;
+    height: 355px !important;
+    width: auto !important;
+    border-radius: 10px 30px;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 20px;
 }
 </style>

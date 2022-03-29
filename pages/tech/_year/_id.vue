@@ -2,9 +2,6 @@
     <section class="section">
         <div class="columns">
             <div class="column is-three-quarters">
-       <!--          <pre>
-                    {{ articles }}
-                </pre> -->
 
                 <h1 class="title is-size-2 has-text-black has-text-weight-bold">
                     {{ articles[0].title }}

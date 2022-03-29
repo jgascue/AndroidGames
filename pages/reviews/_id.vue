@@ -34,11 +34,11 @@
 
                 </div>
 
-                           
+                
                 <div v-if="articles[1].nextTitleLink">
                     <a :href="articles[1].nextTitleLink">{{ articles[1].nextTitle }}</a>
                 </div>
-                <div v-if="articles[1].nextTitleLink2">
+                <div v-if="articles[1].nextTitle2">
                     <a :href="articles[1].nextTitleLink2">{{ articles[1].nextTitle2 }}</a>
                 </div>
 
@@ -66,7 +66,8 @@ export default {
 
         try {
             const { data } = await axios.get(
-                `https://www.cnet.com/tech/${stage.year}/${id}`
+                `https://www.cnet.com/reviews/${id}`
+              /*   'https://www.cnet.com/reviews/samsung-galaxy-s20-ultra-5g-review/' */
             )
             const html = data
             const $ = cheerio.load(html)
@@ -74,9 +75,9 @@ export default {
             const paragraf = []
             const h2titles = []
 
-            $('.content-header', html).each(function () {
+            $('.c-pageReviewContent_body', html).each(function () {
                 const title = $(html).find('h1').text()
-                const subtitle = $(html).find('.c-head_dek').text()
+                const subtitle = $(html).find('.speakableTextDek').text()
 
                 articles.push({
                     title,
@@ -84,16 +85,16 @@ export default {
                 })
             })
 
-            $('.article-main-body', html).each(function () {
+            $('.c-pageReviewContent_body', html).each(function () {
                 
                 const url = $(html).find('a').attr('href')
-                const img = $('.imageContainer').find('img').attr('src')
+                const img = $('.c-shortcodeImage').first().find('picture img').attr('src')
                 const time = $(html).find('.assetTime').text()
                 const text = $(html).find('.article-main-body').html()
                 const nextTitle = $(html).find('.speakableTextP1').first().find('a').first().text()
-                const nextTitleLink = $(html).find('.speakableTextP1').first().find('a').first().attr('href')
+                const nextTitleLink = $(html).find('.speakableTextP1').first().find('a').attr('href')
                 const nextTitle2 = $(html).find('.speakableTextP2').first().find('a').first().text()
-                const nextTitleLink2 = $(html).find('.speakableTextP2').first().find('a').first().attr('href')
+                const nextTitleLink2 = $(html).find('.speakableTextP2').first().find('a').first().text()
 
                 articles.push({
                     img,  
@@ -111,7 +112,7 @@ export default {
             const elements = []
             const filterlist = []
 
-            $('.article-main-body', html).find('p').siblings().each(function (index, element) {
+            $('.c-pageReviewContent_body', html).find('p').siblings().each(function (index, element) {
                 const text = elements.push($(element).text())
             
                 elements.push(text);
@@ -123,8 +124,6 @@ export default {
                 filterlist.push(filtered)
             })
 
-
-        
             return {
                 data,
                 stage,

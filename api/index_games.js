@@ -35,10 +35,6 @@ app.get('/', function (req, res) {
             link
         })
       })
-/*       const linkclean = () => {
-        articles.link.slice(2,4)
-      }
-      linkclean() */
 
       res.send(articles)
     })

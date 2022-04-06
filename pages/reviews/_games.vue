@@ -2,9 +2,11 @@
     <section class="section">
         <div class="columns">
             <div class="column is-three-quarters">
-       <!--          <pre>
-                    {{ articles }}
-                </pre> -->
+        <!--         
+            <pre>
+                {{ articles }}
+            </pre>
+        -->
 
                 <h1 class="title is-size-2 has-text-black has-text-weight-bold">
                     {{ articles[0].title }}
@@ -18,29 +20,44 @@
                 >
                     {{ articles[0].subtitle }} 
                 </p>
-
                 <p>
-                    Category:
-                    <strong> {{ stage.year }} </strong>
+                    <img class="imageContainer" :src="articles[0].baseImage" :alt="articles[0].title">
+                </p>
+                <p>
+                    {{ articles[0].intro }}
+                </p>
+                <p>
+                    {{ articles[0].content }}
                 </p>
 
-                <img class="imageContainer" :src="articles[1].img" :alt="articles[0].title">
+                 <p>
+                   
+                    <a :href="articles[0].link" :alt="articles[0].textLink">
+                        {{ articles[0].textLink }}
+                    </a>
+                </p>
 
-                <div class="body-page" v-for="(list, i) in filterlist" :key="i" >
+              <!--   <p>
+                    Category:
+                    <strong> {{ stage.year }} </strong>
+                </p> -->
+
+
+                <!-- <div class="body-page" v-for="(list, i) in filterlist" :key="i" > -->
 
                 <!--     <p v-for="(element) in filterlist[i]" :key="element"> -->
-                     <div v-html="list[i]"></div>
+                     <!-- <div v-html="list[i]"></div> -->
                    <!--  </p> -->
 
-                </div>
+           <!--      </div> -->
 
                 
-                <div v-if="articles[1].nextTitleLink">
+         <!--        <div v-if="articles[1].nextTitleLink">
                     <a :href="articles[1].nextTitleLink">{{ articles[1].nextTitle }}</a>
                 </div>
                 <div v-if="articles[1].nextTitle2">
                     <a :href="articles[1].nextTitleLink2">{{ articles[1].nextTitle2 }}</a>
-                </div>
+                </div> -->
 
             </div>
             
@@ -57,7 +74,7 @@ import axios from 'axios'
 import cheerio from 'cheerio'
 
 export default {
-    name: 'ProgramsPage',
+    name: 'GamesPage',
     components: {},
     
     async asyncData({ params, error }) {
@@ -66,7 +83,7 @@ export default {
 
         try {
             const { data } = await axios.get(
-                `https://www.cnet.com/reviews/${id}`
+                `https://www.pcmag.com/reviews/${params.games}`
               /*   'https://www.cnet.com/reviews/samsung-galaxy-s20-ultra-5g-review/' */
             )
             const html = data
@@ -75,17 +92,31 @@ export default {
             const paragraf = []
             const h2titles = []
 
-            $('.c-pageReviewContent_body', html).each(function () {
+            $('.article-header', html).each(function () {
                 const title = $(html).find('h1').text()
-                const subtitle = $(html).find('.speakableTextDek').text()
+                const subtitle = $(html).find('header .leading-normal').text()
+                const intro = $(html).find('article > p:first-child').text()
+                const baseImage = $(html).find('img.object-contain').attr('src')
+                const textLink = $(html).find('ul.leading-loose > li:first-child').text()
+                const link = $(html).find('ul.leading-loose > li:first-child > a').attr('href')
+
+                
+                const articleContent = $(html).find('article').text()
+                const content = articleContent
+
 
                 articles.push({
                     title,
                     subtitle,
+                    intro,
+                    baseImage,
+                    content,
+                    textLink,
+                    link
                 })
             })
 
-            $('.c-pageReviewContent_body', html).each(function () {
+          /*   $('.c-pageReviewContent_body', html).each(function () {
                 
                 const url = $(html).find('a').attr('href')
                 const img = $('.c-shortcodeImage').first().find('picture img').attr('src')
@@ -106,13 +137,13 @@ export default {
                     nextTitle2,
                     nextTitleLink2,
                 })
-            })
+            }) */
 
             const subtitles = []
             const elements = []
             const filterlist = []
 
-            $('.c-pageReviewContent_body', html).find('p').siblings().each(function (index, element) {
+     /*        $('.c-pageReviewContent_body', html).find('p').siblings().each(function (index, element) {
                 const text = elements.push($(element).text())
             
                 elements.push(text);
@@ -122,10 +153,10 @@ export default {
                 });
 
                 filterlist.push(filtered)
-            })
+            }) */
 
             return {
-                data,
+                params,
                 stage,
                 articles,
                 h2titles,
@@ -142,13 +173,12 @@ export default {
     data() {
         return {
             slug: this.$route.params.slug,
-            AllGames: [],
             articles: [],
         }
     },
-    head() {
+  /*   head() {
         return {
-            title: 'Programs Games Android' + ' | ' + this.articles[0].title ,
+            title: 'Programs Games Android' + ' | '/*  + this.articles[0].title 
             meta: [
                 {
                     hid: this.articles[0].title,
@@ -157,15 +187,15 @@ export default {
                 },
             ],
         }
-    },
+    }, */
     
     computed: { 
 
     },
-    mounted () { 
+/*     mounted () { 
         const imatges = this.$el.querySelector('img');
         imatges.classList.add('imatges-cool');
-    }
+    } */
 }
 
 </script>

@@ -3,11 +3,11 @@
         <div class="columns">
             <div class="column is-three-quarters">
             
-            <pre>
+       <!--      <pre>
                 {{ params.dev }}
 
                 {{articles}}
-            </pre>
+            </pre> -->
                 <h1 class="title is-size-2 has-text-black has-text-weight-bold">
                   Android:  {{ articles[0].title }}
                 </h1>

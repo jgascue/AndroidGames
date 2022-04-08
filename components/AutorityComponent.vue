@@ -38,7 +38,7 @@ export default {
         }
     },
     async fetch() {
-        const newests = await fetch('http://localhost:3000/api/autority/').then(
+        const newests = await fetch('https://www.programsgamesandroid.com/api/autority/').then(
             (res) => res.json()
         )
         this.news = newests.slice(0)

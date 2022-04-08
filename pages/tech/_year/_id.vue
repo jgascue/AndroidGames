@@ -183,9 +183,6 @@ p {
     margin: 10px 0;
 }
 
-div {
-    margin-bottom:20px;
-}
 h1,
 h2,
 h3 {

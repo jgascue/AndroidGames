@@ -51,6 +51,8 @@ export default {
 
   serverMiddleware: [
     { path: "/api", handler: "~/api/index.js" },
+    { path: "/api/autority/", handler: "~/api/autority.js" },
+    { path: "/api/autoritypage/", handler: "~/api/autority-page.js" },
     { path: "/api/games/", handler: "~/api/index_games.js" },
     { path: "/api/tags/", handler: "~/api/tags.js" },
   ],
@@ -73,8 +75,6 @@ export default {
   },
 
   proxy: {
-
-
     '/api': {
       target: 'https://www.freetogame.com/api/',
       pathRewrites: {

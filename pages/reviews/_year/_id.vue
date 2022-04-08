@@ -5,7 +5,6 @@
        <!--          <pre>
                     {{ articles }}
                 </pre> -->
-params {{ id }}
                 <h1 class="title is-size-2 has-text-black has-text-weight-bold">
                     {{ articles[0].title }}
                 </h1>
@@ -184,9 +183,6 @@ p {
     margin: 10px 0;
 }
 
-div {
-    margin-bottom:20px;
-}
 h1,
 h2,
 h3 {

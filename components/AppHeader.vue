@@ -130,9 +130,6 @@ export default {
         z-index: 111; 
         background: rgb(228, 253, 211);
     } */
-    .p-1 {
-        padding: 1em;
-    }
     .menu-list {
         line-height: 2.2em;
     }

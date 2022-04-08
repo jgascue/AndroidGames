@@ -30,11 +30,10 @@ app.get('/', function (req, res) {
         dataimg
       })
     })
-    
     res.send(articles)
   }).catch(err => console.log(err))
-
 })
+
 
 
 module.exports = {
@@ -42,11 +41,3 @@ module.exports = {
   handler: app,
 }
 
-/* 
-export default function (context) {
-  // Add the userAgent property to the context
-  context.userAgent = process.server
-    ? context.req.headers['user-agent']
-    : navigator.userAgent
-}
- */

@@ -5,7 +5,7 @@
             <div class="column is-three-quarters">
                 
                 <h1 class="title has-text-black">
-                    {{ data[0].title }}
+                    Games {{ data[0].title }}
                 </h1>
 
                 <div v-for="(game, index) in data" :key="index">

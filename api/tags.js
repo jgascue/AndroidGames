@@ -3,14 +3,13 @@ const cheerio = require('cheerio')
 const { default: axios } = require('axios')
 const app = express()
 
-const  { router } = require('vue-router')
+/* const  { router } = require('vue-router') */
 
 const urlAndroid = `https://www.cnet.com/tags/processors/`
 
 /* const urlAndroid = `https://www.cnet.com/tags/processors/` */
 
 app.get('/', function (req, res) {
-  console.log(router)
 
   axios(urlAndroid).then((response) => {
     const html = response.data

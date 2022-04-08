@@ -1,16 +1,19 @@
 <template>
     <section class="section">
-        <div class="columns is-mobile"></div>
+            <div class="is-mobile"></div>
 
             <h1 class="is-size-2 title has-text-weight-bold">Android Programs Games and much more</h1>
-                <div >
-                    <div v-for="article of data" :key="article.id" class="my-4 columns" >
-                            <div class="column is-one-quarter has-background-link">
+            
+            <div class="columns">
+                <div class="column is-one-quarter">
+                    <div v-for="article of data" :key="article.id" class="my-4">
+                        <div class="">
+                            <div class="">
                                 <a :href="article.url" :alt="article.title">
                                     <img :src="article.img" :alt="article.title" class="is-rounded box p-1" />
                                 </a>
                             </div>
-                            <div class="column is-two-quarters">
+                            <div class="">
                                 <a :href="article.url" :alt="article.title">
                                     <h2 class="title is-4 is-family-sans-serif has-text-dark">
                                         <strong>
@@ -34,13 +37,17 @@
                                     </a>
                                 </p>
                             </div>
-                            <div class="column column is-one-quarter">
-                                   ...
+                            <div class="column is-one-quarter">
+                            ...
                             </div>
-                            
                         </div>
-                    
+                    </div>
                 </div>
+                <div class="column is-half">
+                    <autority-component :params="params" />
+                </div>
+                
+            </div>
   
     </section>
 </template>
@@ -49,26 +56,24 @@
 
 import axios from 'axios'
 
+import AutorityComponent from '../components/AutorityComponent.vue'
+
 export default {
     name: 'IndexPage',
-    components: {},
+    components: {
+        AutorityComponent
+    },
     async asyncData({ params, error }) {
         try {
             const { data } = await axios.get(
-                'https://www.programsgamesandroid.com/api/'
+                'http://localhost:3000/api/'
             )
             return {
-                data
+                data,
             }
             
         } catch (err) {
             error({ message: 'something went wrong', statusCode: err.code })
-        }
-    },
-    data() {
-        
-        return {
-            AllGames: [],
         }
     },
     head() {

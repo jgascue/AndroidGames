@@ -5,7 +5,7 @@
 
     {{ news }}
 </pre> -->
-Page
+
         <div v-for="list in news" :key="list"  class="my-4">
 
             <div class="column"> 

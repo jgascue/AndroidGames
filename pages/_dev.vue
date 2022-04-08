@@ -3,28 +3,28 @@
         <div class="columns">
             <div class="column is-three-quarters">
             
-       <!--      <pre>
+            <pre>
                 {{ params.dev }}
 
                 {{articles}}
-            </pre> -->
-                <h1 class="title is-size-2 has-text-black has-text-weight-bold">
+            </pre>
+                <h1 v-if="articles[0].title" class="title is-size-2 has-text-black has-text-weight-bold">
                   Android:  {{ articles[0].title }}
                 </h1>
-                <h2 class="title is-size-4 has-text-black has-text-weight-bold">
+                <h2 v-if="articles[0].subtitle" class="title is-size-4 has-text-black has-text-weight-bold">
                     {{ articles[0].subtitle }}
                 </h2>
                 <p>
-                    <img class="imageContainer" :src="articles[0].image" :alt="articles[0].title">
+                    <img  v-if="articles[0].image" class="imageContainer" :src="articles[0].image" :alt="articles[0].title">
                 </p>
-                 <div v-html=" articles[0].intro">
+                 <div  v-if="articles[0].intro"  v-html=" articles[0].intro">
                 
                 </div>
-                <p>
+                <p v-if="articles[0].content">
                     {{ articles[0].content }}
                 </p>
 
-                 <p>
+                 <p v-if="articles[0].textLink">
                    
                     <a :href="articles[0].link" :alt="articles[0].textLink">
                         {{ articles[0].textLink }}
@@ -62,9 +62,7 @@ export default {
 
         try {
             const { data } = await axios.get(
-         /*        `https://www.androidauthority.com/google-pixel-self-repair-3151037/` */
                 `https://www.androidauthority.com/${params.dev}/`
-              /*   'https://www.cnet.com/reviews/samsung-galaxy-s20-ultra-5g-review/' */
             )
             const html = data
             const $ = cheerio.load(html)
@@ -78,12 +76,15 @@ export default {
                 const image = $(html).find('img').attr('src')
                 const intro = $(html).find('ul').html()
                 const content = $(html).find('div > div').text()
-                const link = $(html).find('div > div + div > p + p > a').attr('href')
-                const textLink = $(html).find('div > div + div > p + p > a').text()
-/*                const baseImage = $(html).find('img.object-contain').attr('src')
-                
-                const content = articleContent */
+                const linkshort = $(html).find('div > div > div > p > a:nth-child(2)').last().attr('href')
+                const textLink = $(html).find('div > div > div > p > a:nth-child(2)').last().text()
 
+                if (linkshort.includes('https://www.androidauthority.com/')) {
+                   linkshort.slice(32)
+                   console.log(linkshort)
+                }
+
+                const link = linkshort.slice(32)
 
                 articles.push({
                     title,

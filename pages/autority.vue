@@ -18,7 +18,7 @@ export default {
     async asyncData({ params, error }) {
         try {
             const { data } = await axios.get(
-                'http://localhost:3000/api/autority'
+                'https://www.programsgamesandroid.com/api/autority'
             )
             return {
                 data,

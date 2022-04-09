@@ -26,7 +26,7 @@
 
                  <p v-if="articles[0].textLink">
                    
-                    <a :href="articles[0].link" :alt="articles[0].textLink">
+                    <a v-if="articles[0].link" :href="articles[0].link" :alt="articles[0].textLink">
                         {{ articles[0].textLink }}
                     </a>
                 </p>

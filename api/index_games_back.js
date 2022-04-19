@@ -4,7 +4,8 @@ const { default: axios } = require('axios')
 
 const app = express()
 
-const urlGames = 'https://en.wikipedia.org/wiki/List_of_Android_games'
+const urlGames = 'https://www.pcmag.com/picks/the-best-android-games'
+const urlWikiGames = 'https://en.wikipedia.org/wiki/List_of_Android_games'
 
 app.get('/', function (req, res) {
   axios(urlGames)
@@ -18,26 +19,28 @@ app.get('/', function (req, res) {
         title,
       })
 
-      $('.wikitable tbody tr', html).each(function () {
-        const titleWikiGame = $(this).find('td:first-child').text()
-        const subtitleWiki = $(this).find('td:nth-child(4)').text()
-
- /*        const img = $(this).find('iframe').attr('data-image-loader') */
-        const genre = $(this).find('.content-body').text()
+      $('.roundup-product-card', html).each(function () {
+        const titleGame = $(this).find('h2').text()
+        const subtitle = $(this).find('p.leading-normal').text()
+        const img = $(this).find('iframe').attr('data-image-loader')
+        const text = $(this).find('.content-body').text()
         const body = $(this).find('p').text()
         const link = $(this).find('.rich-text a').attr('href')
 
-
         articles.push({
-            titleWikiGame,
-            subtitleWiki,
+            titleGame,
+            subtitle,
+            text,
+            img,
+            body,
+            link
         })
       })
 
       res.send(articles)
     }).then()
 
-    /* axios(urlWikiGames)
+    axios(urlWikiGames)
     .then((res) => {
       const htmlwiki = res.data
       const $ = cheerio.load(htmlwiki)
@@ -58,10 +61,10 @@ app.get('/', function (req, res) {
       })
 
       res.send(gameList)
-    }) */
+    })
     .catch((err) => {
       console.log(err)
-    }) 
+    })
 
     
 })

@@ -3,7 +3,14 @@
         <div class="columns is-multiline">
 
             <div class="column is-three-quarters">
-                
+     <!--            <pre>
+                    {{ data }}
+                </pre> -->
+
+
+                <wiki-games-component />
+
+
                 <h1 class="title has-text-black">
                     Games {{ data[0].title }}
                 </h1>
@@ -50,15 +57,17 @@
 
 <script>
 import axios from 'axios'
+import WikiGamesComponent from '../components/WikiGamesComponent.vue'
 
 export default {
     name: 'GamesPage',
-    components: {},
+    components: {
+        WikiGamesComponent
+    },
    
     async asyncData({ params, error }) {
-        
         try {
-            const { data } = await axios.get('https://www.programsgamesandroid.com/api/games/')
+            const { data } = await axios.get('http://localhost:3000/api/games/')
             return {
                 data
             }
@@ -68,7 +77,6 @@ export default {
     },
     data() {
         return {
-            articles: []
         }
     },
     head() {
@@ -130,5 +138,5 @@ export default {
         min-height: 400px;
         margin: 20px 0;
     }
-    
+
 </style>

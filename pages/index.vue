@@ -2,10 +2,6 @@
     <section class="section">
             <div class="is-mobile"></div>
 
-            <pre>
-                {{ data }}
-            </pre>
-
             <h1 class="is-size-2 title has-text-weight-bold">Android Programs Games and much more</h1>
             
             <div class="columns">
@@ -48,7 +44,7 @@
                     </div>
                 </div>
                 <div class="column is-half">
-                    <autority-component :params="params" />
+                    <autority-component v-if="params" :params="params" />
                 </div>
                 
             </div>

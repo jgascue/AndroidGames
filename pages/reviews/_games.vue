@@ -32,29 +32,6 @@
                         {{ articles[0].textLink }}
                     </a>
                 </p>
-
-              <!--   <p>
-                    Category:
-                    <strong> {{ stage.year }} </strong>
-                </p> -->
-
-
-                <!-- <div class="body-page" v-for="(list, i) in filterlist" :key="i" > -->
-
-                <!--     <p v-for="(element) in filterlist[i]" :key="element"> -->
-                     <!-- <div v-html="list[i]"></div> -->
-                   <!--  </p> -->
-
-           <!--      </div> -->
-
-                
-         <!--        <div v-if="articles[1].nextTitleLink">
-                    <a :href="articles[1].nextTitleLink">{{ articles[1].nextTitle }}</a>
-                </div>
-                <div v-if="articles[1].nextTitle2">
-                    <a :href="articles[1].nextTitleLink2">{{ articles[1].nextTitle2 }}</a>
-                </div> -->
-
             </div>
             
             <div class="column is-one-quarters">
@@ -170,10 +147,6 @@ body {
     font-family: 'Fredoka', sans-serif;
 }
 
-p {
-    margin: 10px 0;
-}
-
 div {
     margin-bottom:20px;
 }
@@ -193,4 +166,5 @@ h3 {
     margin-right: 40px;
     margin-bottom: 20px;
 }
+
 </style>

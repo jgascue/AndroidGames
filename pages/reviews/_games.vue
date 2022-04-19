@@ -95,8 +95,6 @@ export default {
                 const baseImage = $(html).find('img.object-contain').attr('src')
                 const textLink = $(html).find('ul.leading-loose > li:first-child').text()
                 const link = $(html).find('ul.leading-loose > li:first-child > a').attr('href')
-
-                
                 const articleContent = $(html).find('article').text()
                 const content = articleContent
 
@@ -112,44 +110,9 @@ export default {
                 })
             })
 
-          /*   $('.c-pageReviewContent_body', html).each(function () {
-                
-                const url = $(html).find('a').attr('href')
-                const img = $('.c-shortcodeImage').first().find('picture img').attr('src')
-                const time = $(html).find('.assetTime').text()
-                const text = $(html).find('.article-main-body').html()
-                const nextTitle = $(html).find('.speakableTextP1').first().find('a').first().text()
-                const nextTitleLink = $(html).find('.speakableTextP1').first().find('a').attr('href')
-                const nextTitle2 = $(html).find('.speakableTextP2').first().find('a').first().text()
-                const nextTitleLink2 = $(html).find('.speakableTextP2').first().find('a').first().text()
-
-                articles.push({
-                    img,  
-                    url,
-                    time,
-                    text,
-                    nextTitle,
-                    nextTitleLink,
-                    nextTitle2,
-                    nextTitleLink2,
-                })
-            }) */
-
             const subtitles = []
             const elements = []
             const filterlist = []
-
-     /*        $('.c-pageReviewContent_body', html).find('p').siblings().each(function (index, element) {
-                const text = elements.push($(element).text())
-            
-                elements.push(text);
-
-                const filtered = elements.filter(function(el, index) {
-                    return index % 2 === 0;
-                });
-
-                filterlist.push(filtered)
-            }) */
 
             return {
                 params,

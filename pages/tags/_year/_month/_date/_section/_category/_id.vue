@@ -45,7 +45,7 @@ export default {
         const id = params.id
         try {
             const { data } = await axios.get(
-                'http://localhost:3000/api/'
+                'https://www.programsgamesandroid.com/api/'
             )
             return {
                 data,

@@ -2,6 +2,10 @@
     <section class="section">
             <div class="is-mobile"></div>
 
+            <pre>
+                {{ data }}
+            </pre>
+
             <h1 class="is-size-2 title has-text-weight-bold">Android Programs Games and much more</h1>
             
             <div class="columns">
@@ -78,7 +82,7 @@ export default {
     },
     head() {
         return {
-            title: 'Programs Games Android',
+            title: 'Programs and Games Android, News, last trends reviews and best products',
             meta: [
                 {
                     hid: 'Programs and Games Android News. Play for free Games',

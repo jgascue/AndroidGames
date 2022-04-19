@@ -130,4 +130,5 @@ export default {
         min-height: 400px;
         margin: 20px 0;
     }
+    
 </style>

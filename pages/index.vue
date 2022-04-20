@@ -2,7 +2,9 @@
     <section class="section">
             <div class="is-mobile"></div>
 
-            <h1 class="is-size-2 title has-text-weight-bold">Android Programs Games and much more</h1>
+            <h1 class="is-size-2 title has-text-weight-bold">Android Programs, all about Games and much more</h1>
+
+            <h2 class="is-size-4 title has-text-weight-bold has-text-primary">Know the last news about it</h2>
             
             <div class="columns">
                 <div class="column is-one-quarter">
@@ -44,7 +46,7 @@
                     </div>
                 </div>
                 <div class="column is-half">
-                    <autority-component v-if="params" :params="params" />
+                    <autority-component :params="params" />
                 </div>
                 
             </div>
@@ -55,7 +57,6 @@
 <script>
 
 import axios from 'axios'
-
 import AutorityComponent from '../components/AutorityComponent.vue'
 
 export default {
@@ -66,10 +67,11 @@ export default {
     async asyncData({ params, error }) {
         try {
             const { data } = await axios.get(
-                'https://www.programsgamesandroid.com/api/'
+                'http://localhost:3000/api/'
             )
             return {
                 data,
+                params
             }
             
         } catch (err) {

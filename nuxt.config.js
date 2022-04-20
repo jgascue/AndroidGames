@@ -46,6 +46,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
+
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -83,7 +85,12 @@ export default {
     },
   },
 
+  env: {
+/*     baseUrl: process.env.BASE_URL || 'http://localhost:3000' */
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+/*     baseUrl: process.env.BASE_URL || 'https://www.programsgamesandroid.com' */
   }
 }

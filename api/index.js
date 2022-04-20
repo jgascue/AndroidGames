@@ -1,7 +1,6 @@
 const express = require('express')
 const cheerio = require('cheerio')
 const { default: axios } = require('axios')
-
 const app = express()
 
 const urlAndroid = 'https://www.cnet.com/android-update/'
@@ -32,9 +31,8 @@ app.get('/', function (req, res) {
     })
     res.send(articles)
   }).catch(err => console.log(err))
+  
 })
-
-
 
 module.exports = {
   path: '/api/',

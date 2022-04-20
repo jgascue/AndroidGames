@@ -17,27 +17,27 @@
                 <p>
                     <img  v-if="articles[0].image" class="imageContainer" :src="articles[0].image" :alt="articles[0].title">
                 </p>
-                 <div  v-if="articles[0].intro"  v-html=" articles[0].intro">
-                
+                <div  v-if="articles[0].intro" v-html=" articles[0].intro">
+            
                 </div>
-                <p v-if="articles[0].content">
-                    {{ articles[0].content }}
-                </p>
 
+                <p></p>
+                <p></p>
+
+                <h2 v-if="articles[0].secondTitle" class="subtitle mt-5 is-size-4 has-text-black has-text-weight-bold"> {{ articles[0].secondTitle }}</h2>
+
+                <p v-html="articles[0].contentText"></p>
+          
                  <p v-if="articles[0].textLink">
-                   
                     <a v-if="articles[0].link" :href="articles[0].link" :alt="articles[0].textLink">
                         {{ articles[0].textLink }}
                     </a>
                 </p>
 
-               <!--  <autority-component /> -->
-
-               <!--  <autority-page-component /> -->
             </div>
             
             <div class="column is-one-quarters">
-                ...  
+                <autority-component :params="params" /> 
             </div>
         </div>
     </section>
@@ -48,13 +48,13 @@
 
 import axios from 'axios'
 import cheerio from 'cheerio'
-/* import AutorityPageComponent from '../components/AutorityPageComponent.vue' */
+import AutorityComponent from '../components/AutorityComponent.vue'
 
 
 export default {
     name: 'GamesPage',
     components: {
- /*        AutorityPageComponent */
+        AutorityComponent
     },  
     async asyncData({ params, error }) {
         const id = params.id
@@ -69,19 +69,20 @@ export default {
             const articles = []
             const paragraf = []
             const h2titles = []
+        
 
             $('main', html).each(function () {
                 const title = $(html).find('h1').text()
                 const subtitle = $(html).find('h1 + div').text()
                 const image = $(html).find('img').attr('src')
-                const intro = $(html).find('ul').html()
-                const content = $(html).find('div > div').text()
+                const intro = $(html).find('div > div > div > div:nth-child(2) > p').text()
+                const secondTitle = $(html).find('div + hr + h2').text()
+                const contentText = $(html).find('div > div > div > p').text()
                 const linkshort = $(html).find('div > div > div > p > a:nth-child(2)').last().attr('href')
                 const textLink = $(html).find('div > div > div > p > a:nth-child(2)').last().text()
 
                 if (linkshort.includes('https://www.androidauthority.com/')) {
                    linkshort.slice(32)
-                   console.log(linkshort)
                 }
 
                 const link = linkshort.slice(32)
@@ -91,7 +92,8 @@ export default {
                     subtitle,
                     image,
                     intro,
-                    content,
+                    secondTitle,
+                    contentText,
                     textLink,
                     link
                 })

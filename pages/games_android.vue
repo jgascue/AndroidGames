@@ -7,7 +7,6 @@
                     {{ data }}
                 </pre> -->
 
-
                 <wiki-games-component />
 
 
@@ -67,7 +66,7 @@ export default {
    
     async asyncData({ params, error }) {
         try {
-            const { data } = await axios.get('http://localhost:3000/api/games/')
+            const { data } = await axios.get('https://www.programsgamesandroid.com/api/games/')
             return {
                 data
             }

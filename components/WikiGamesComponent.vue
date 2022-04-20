@@ -3,7 +3,10 @@
 <!--       <pre>
         {{ news }}
       </pre> -->
-      helouuu
+      <h4>
+            Games Android
+      </h4>
+
   <!--       <div v-for="list in news" :key="list"  class="my-4">
 
             <div class="column"> 
@@ -40,12 +43,12 @@ export default {
             news: [],
         }
     },
-    async fetch() {
+/*     async fetch() {
         const newests = await fetch('https://en.wikipedia.org/wiki/List_of_Android_games').then(
               (res) => res.json()
         )
         this.news = newests
-    },
+    }, */
 }
 </script>
 

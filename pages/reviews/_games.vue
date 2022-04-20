@@ -112,9 +112,9 @@ export default {
             articles: [],
         }
     },
-  /*   head() {
+    head() {
         return {
-            title: 'Programs Games Android' + ' | '/*  + this.articles[0].title 
+            title: 'Programs Games Android' + ' | '  + this.articles[0].title,
             meta: [
                 {
                     hid: this.articles[0].title,
@@ -123,7 +123,7 @@ export default {
                 },
             ],
         }
-    }, */
+    },
     
     computed: { 
 

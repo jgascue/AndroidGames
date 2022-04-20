@@ -3,9 +3,7 @@
         <div class="columns is-multiline">
 
             <div class="column is-three-quarters">
-     <!--            <pre>
-                    {{ data }}
-                </pre> -->
+ 
 
                 <wiki-games-component />
 
